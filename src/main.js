@@ -11,4 +11,4 @@ new Vue({
 }).$mount('#app');
 
 alert(data.message);
-alert(data2.ShowMessage());
+alert(data2.ShowMessage);

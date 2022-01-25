@@ -1,4 +1,4 @@
 const message = 'Hello users!';
-const data = {message: message};
+const data = { message };
 
-export default data
+export default data;
