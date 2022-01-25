@@ -1,7 +1,7 @@
 const message = 'Hello from data2!';
 
 function ShowMessage() {
-  console.alert(message);
+  return message;
 }
-ShowMessage();
+
 export default ShowMessage;
