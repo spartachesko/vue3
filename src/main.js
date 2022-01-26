@@ -10,5 +10,4 @@ new Vue({
   render: (h) => h(App),
 }).$mount('#app');
 
-// alert(data.message);
 ShowMessage(data.message);
