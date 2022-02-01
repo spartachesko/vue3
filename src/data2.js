@@ -1,5 +1,5 @@
 function ShowMessage(message) {
-  console.alert(message);
+  alert(message);
 }
 
 export default ShowMessage;
