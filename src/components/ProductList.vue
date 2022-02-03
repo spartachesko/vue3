@@ -1,8 +1,11 @@
 <template>
 <section class="catalog">
 <ul class="catalog__list">
-  <li class="catalog__item" v-for="(product, index) in products" :key="index">
-      <ProductItem :product = "product" :index = "index"/>
+    <ProductItem
+    v-for="(product, index) in products"
+    :key="index"
+    :product = "product"
+    :index = "index"/>
   <ul class="colors colors--black">
     <li class="colors__item">
       <label class="colors__label">
@@ -26,14 +29,13 @@
       </label>
     </li>
   </ul>
-  </li>
   </ul>
 </section>
 </template>
 
 <script>
 
-import ProductItem from './components/ProductItem'
+import ProductItem from './ProductItem.vue';
 
 export default {
   components: { ProductItem },
