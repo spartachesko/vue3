@@ -16,7 +16,9 @@
       :category-id.sync = "filterCategoryId"/>
         <section class="catalog">
   <ProductList :products = "products"/>
-  <BasePagination v-model ="page" :count="countProducts" :per-page="productsPerPage" />
+  <BasePagination v-model ="page"
+  :count="countProducts"
+  :per-page="productsPerPage" />
   </section>
     </div>
   </main>
