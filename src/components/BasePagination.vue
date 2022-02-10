@@ -54,9 +54,8 @@ export default {
       };
     },
     classLinkDisabledRight() {
-      const quantityPages = this.pages();
       return {
-        'pagination__link--disabled': this.page === quantityPages.length,
+        'pagination__link--disabled': this.page === this.pages,
       };
     },
   },
