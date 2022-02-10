@@ -1,7 +1,9 @@
 <template>
   <ul class="catalog__pagination pagination">
     <li class="pagination__item">
-      <a class="pagination__link pagination__link--arrow pagination__link--disabled"
+      <a class="pagination__link
+      pagination__link--arrow"
+      :class="classLinkDisabledLeft"
       aria-label="Предыдущая страница"
       @click.prevent="previousPage()">
         <svg width="8" height="14" fill="currentColor">
@@ -20,7 +22,9 @@
       </a>
     </li>
     <li class="pagination__item">
-      <a class="pagination__link pagination__link--arrow"
+      <a class="pagination__link
+      pagination__link--arrow"
+      :class="classLinkDisabledRight"
       href="#"
       aria-label="Следующая страница"
       @click.prevent="nextPage()">
@@ -36,13 +40,24 @@
 
 export default {
   model: {
-    props: 'page',
+    prop: 'page',
     event: 'paginate',
   },
   props: ['page', 'count', 'perPage'],
   computed: {
     pages() {
       return Math.ceil(this.count / this.perPage);
+    },
+    classLinkDisabledLeft() {
+      return {
+        'pagination__link--disabled': this.page === 1,
+      };
+    },
+    classLinkDisabledRight() {
+      const quantityPages = this.pages();
+      return {
+        'pagination__link--disabled': this.page === quantityPages.length,
+      };
     },
   },
   methods: {
