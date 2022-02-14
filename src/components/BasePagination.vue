@@ -4,8 +4,10 @@
       <a class="pagination__link
       pagination__link--arrow"
       :class="classLinkDisabledLeft"
+      href="#"
       aria-label="Предыдущая страница"
-      @click.prevent="previousPage()">
+      @click.prevent="previousPage()"
+      :disabled='isDisabledLeft'>
         <svg width="8" height="14" fill="currentColor">
           <use xlink:href="#icon-arrow-left"></use>
         </svg>
@@ -27,7 +29,8 @@
       :class="classLinkDisabledRight"
       href="#"
       aria-label="Следующая страница"
-      @click.prevent="nextPage()">
+      @click.prevent="nextPage()"
+      :disabled='isDisabledRight'>
         <svg width="8" height="14" fill="currentColor">
           <use xlink:href="#icon-arrow-right"></use>
         </svg>
@@ -57,6 +60,12 @@ export default {
       return {
         'pagination__link--disabled': this.page === this.pages,
       };
+    },
+    isDisabledLeft() {
+      return this.page === 1;
+    },
+    isDisabledRight() {
+      return this.page === this.pages;
     },
   },
   methods: {
