@@ -30,7 +30,6 @@
                 <option :value="category.id"
                 v-for = "category in categories"
                 :key="category.id">{{ category.title }}</option>
-
               </select>
             </label>
           </fieldset>
