@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     paginate(page) {
-      if (page >= 1 || page <= this.pages) {
+      if (page >= 1 && page <= this.pages) {
         this.$emit('paginate', page);
       }
     },
