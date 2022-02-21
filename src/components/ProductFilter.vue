@@ -48,7 +48,7 @@
                   </span>
                 </label>
               </li>
-              <li class="colors__item">
+              <!-- <li class="colors__item">
                 <label class="colors__label">
                   <input class="colors__radio sr-only" type="radio" name="color" value="#FFBE15">
                   <span class="colors__value" style="background-color: #FFBE15;">
@@ -84,7 +84,7 @@
                   <input class="colors__radio sr-only" type="radio" name="color" value="#000">
                   <span class="colors__value" style="background-color: #000;">
                 </span></label>
-              </li>
+              </li> -->
             </ul>
           </fieldset>
 
@@ -177,9 +177,10 @@ export default {
       currentPriceFrom: 0,
       currentPriceTo: 0,
       currentCategoryId: 0,
+      currentColor: 0,
     };
   },
-  props: ['priceFrom', 'priceTo', 'categoryId'],
+  props: ['priceFrom', 'priceTo', 'categoryId', 'color'],
   computed: {
     categories() {
       return categories;
@@ -195,17 +196,22 @@ export default {
     categoryId(value) {
       this.currentCategoryId = value;
     },
+    color(value) {
+      this.currentColor = value;
+    },
   },
   methods: {
     submit() {
       this.$emit('update:priceFrom', this.currentPriceFrom);
       this.$emit('update:priceTo', this.currentPriceTo);
       this.$emit('update:categoryId', this.currentCategoryId);
+      this.$emit('update:color', this.currentColor);
     },
     reset() {
       this.$emit('update:priceFrom', 0);
       this.$emit('update:priceTo', 0);
       this.$emit('update:categoryId', 0);
+      this.$emit('update:color', 0);
     },
   },
 };
