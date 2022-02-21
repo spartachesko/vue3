@@ -18,7 +18,7 @@
         <label class="colors__label">
           <input class="colors__radio sr-only"
           type="radio"
-          value="_color"
+          :value="_color"
           v-model="color">
           <span class="colors__value"
           :style="{'background-color': _color}">
