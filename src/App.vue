@@ -60,7 +60,7 @@ export default {
       }
       if (this.filterColor) {
         filterProducts = filterProducts.filter(
-          (product) => product.colors === this.filterColor,
+          (product) => product.colors.contains(this.filterColor),
         );
       }
       return filterProducts;
