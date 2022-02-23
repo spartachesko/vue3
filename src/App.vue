@@ -19,7 +19,7 @@
   <ProductList :products = "products"/>
   <BasePagination v-model ="page"
   :count="countProducts"
-  :per-page="productsPerPage" />
+  :per-page="productsPerPage" />3
   </section>
     </div>
   </main>
@@ -60,7 +60,7 @@ export default {
       }
       if (this.filterColor) {
         filterProducts = filterProducts.filter(
-          (product) => product.colors.contains(this.filterColor),
+          (product) => product.colors.some((color) => color === this.filterColor),
         );
       }
       return filterProducts;
