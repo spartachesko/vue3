@@ -413,7 +413,7 @@ height : 26px;
 border : transparent solid 1px;
 }
 .colors__label:focus .colors__value::before, .colors__label:hover .colors__value::before, .colors__radio:checked ~ .colors__value::before {
-border-color : #222;
+border-color : rgb(252, 3, 3);
 }
 .colors__radio:focus ~ .colors__value::before {
 opacity : 0.7;
