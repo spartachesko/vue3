@@ -19,7 +19,7 @@
   <ProductList :products = "products"/>
   <BasePagination v-model ="page"
   :count="countProducts"
-  :per-page="productsPerPage" />3
+  :per-page="productsPerPage" />
   </section>
     </div>
   </main>

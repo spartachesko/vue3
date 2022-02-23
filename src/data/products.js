@@ -5,7 +5,7 @@ export default [
     title: 'Смартфон Xiaomi Redmi Note 11',
     price: 14293,
     image: 'img\\Xiaomi-Redmi-Note-11.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#8BE000', '#000'],
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export default [
     title: 'Миниатюрная Механическая игровая клавиатура',
     price: 3033,
     image: 'img\\REDRAGON.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#FF6B00', '#8BE000', '#000'],
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export default [
     title: 'Мужские спортивные костюмы',
     price: 2156,
     image: 'img\\tshirt.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#FF6B00', '#8BE000', '#000'],
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export default [
     title: 'Новинка RCD330 187B MIB радиоприемник',
     price: 32486,
     image: 'img\\RCD330-187B-MIB-RCD360-PRO-NONAME-Android-Carplay-VW.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#8BE000', '#000'],
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export default [
     title: 'Женский двухслойный Ветрозащитный Автоматический Зонт от дождя',
     price: 782,
     image: 'img\\mbrella.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#8BE000', '#000'],
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export default [
     title: 'Комплект для электровелосипеда Bafang BBS02B',
     price: 61884,
     image: 'img\\Bafang-BBS02B-750-48.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#939393', '#8BE000', '#000'],
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export default [
     title: 'Набор для самостоятельной сборки рамы с ЧПУ',
     price: 44079,
     image: 'img\\equipment.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#939393', '#8BE000', '#FFBE15'],
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export default [
     title: 'Тренажерный зал Фитнес',
     price: 6551,
     image: 'img\\fitnes.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#8BE000', '#000'],
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export default [
     title: 'Новый летний Модный хлопковый жилет на бретелях',
     price: 325,
     image: 'img\\singlet.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#FFF', '#000'],
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export default [
     title: 'полировальная машина для металла',
     price: 24755,
     image: 'img\\tank.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#8BE000', '#FFBE15'],
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export default [
     title: '3D-принтер Voxelab Aquila',
     price: 51106,
     image: 'img\\Voxelab-Aquila-3D.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#8BE000', '#000'],
   },
   {
     id: 12,
@@ -93,6 +93,6 @@ export default [
     title: 'шаговый двигатель',
     price: 944,
     image: 'img\\Nema23.jpg',
-    colors: ['#73B6EA', '#8BE000', '#222'],
+    colors: ['#73B6EA', '#FFF', '#000'],
   },
 ];
