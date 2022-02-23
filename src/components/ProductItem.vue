@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      color: 'this.product.colors[0]',
+      color: '',
     };
   },
   props: ['product'],
