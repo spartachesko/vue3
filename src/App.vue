@@ -21,7 +21,7 @@ export default {
 
   computed: {
     currentPageComponent() {
-      return routes(this.currentPage) || 'NotFoundPage';
+      return routes[this.currentPage] || 'NotFoundPage';
     },
   },
 
