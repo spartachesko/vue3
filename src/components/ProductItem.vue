@@ -1,8 +1,12 @@
 <template>
   <div>
     <li class="catalog__item">
-      <a class="catalog__pic" href="#">
-        <img :src="product.image"  :alt="product.title">
+      <a
+        class="catalog__pic"
+        href="#"
+        @click.prevent="$emit('gotoPage', 'product', { id: product.id })"
+      >
+        <img :src="product.image" :alt="product.title" />
       </a>
       <h3 class="catalog__title">
         <a href="#">
@@ -14,14 +18,19 @@
       </span>
     </li>
     <ul class="colors colors--black">
-      <li class="colors__item" v-for = "(_color, index) in product.colors" :key="index">
+      <li
+        class="colors__item"
+        v-for="(_color, index) in product.colors"
+        :key="index"
+      >
         <label class="colors__label">
-          <input class="colors__radio sr-only"
-          type="radio"
-          :value="_color"
-          v-model="color">
-          <span class="colors__value"
-          :style="{'background-color': _color}">
+          <input
+            class="colors__radio sr-only"
+            type="radio"
+            :value="_color"
+            v-model="color"
+          />
+          <span class="colors__value" :style="{ 'background-color': _color }">
           </span>
         </label>
       </li>
@@ -30,7 +39,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {

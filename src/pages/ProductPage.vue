@@ -246,6 +246,6 @@ Wahoo ELEMNT BOLT GPS – это велокомпьютер, который по
 <script>
 
 export default {
-
+  props: ['pageParams'],
 };
 </script>
