@@ -38,14 +38,16 @@ export default new Vuex.Store({
     },
 
     minusCartProduct(state, productId) {
-      
-      state.cartProducts = state.cartProducts.filter(
-        (item) => item.productId === productId
-        );
+      const item = state.cartProducts.find((i) => i.productId === productId);
+
+      if (item > 0) {
+        item.amount -= 1;
+      }
     },
 
     plusCartProduct(state, productId) {
-      state.cartProducts = state.cartProducts.filter((item) => item.productId !== productId);
+      const item = state.cartProducts.find((i) => i.productId === productId);
+      item.amount += 1;
     },
   },
   getters: {

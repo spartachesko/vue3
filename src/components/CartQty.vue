@@ -25,9 +25,7 @@
 import { mapMutations } from 'vuex';
 
 export default {
-  props: {
-
-  },
+  props: ['item'],
 
   computed: {
     amount: {
@@ -43,6 +41,8 @@ export default {
   methods: {
     ...mapMutations({
       deleteProduct: 'deleteCartProduct',
+      minusProduct: 'minusCartProduct',
+      plusProduct: 'plusCartProduct',
     }),
   },
 };
