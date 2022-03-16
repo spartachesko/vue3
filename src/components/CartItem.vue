@@ -13,23 +13,7 @@
         Артикул: {{ item.product.id }}
       </span>
 
-      <div class="product__counter form__counter">
-        <button type="button"
-        aria-label="Убрать один товар"
-        @click.prevent="deleteProduct(item.productId)">
-          <svg width="10" height="10" fill="currentColor">
-            <use xlink:href="#icon-minus"></use>
-          </svg>
-        </button>
-
-        <input type="text" v-model.number="amount" name="count">
-
-        <button type="button" aria-label="Добавить один товар">
-          <svg width="10" height="10" fill="currentColor">
-            <use xlink:href="#icon-plus"></use>
-          </svg>
-        </button>
-      </div>
+      <CartQty/>
 
       <b class="product__price">
         {{ (item.amount*item.product.price) | numberFormat  }} ₽
@@ -37,7 +21,8 @@
 
       <button class="product__del button-del"
       type="button"
-      aria-label="Удалить товар из корзины">
+      aria-label="Удалить товар из корзины"
+      @click.prevent="deleteProduct(item.productId)">
         <svg width="20" height="20" fill="currentColor">
           <use xlink:href="#icon-close"></use>
         </svg>
@@ -48,8 +33,13 @@
 <script>
 import numberFormat from '@/helpers/numberFormat';
 import { mapMutations } from 'vuex';
+import CartQty from '@/components/CartQty.vue';
 
 export default {
+  components: {
+    CartQty,
+  },
+
   filters: {
     numberFormat,
   },
@@ -65,7 +55,9 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({ deleteProduct: 'deleteCartProduct' }),
+    ...mapMutations({
+      deleteProduct: 'deleteCartProduct',
+    }),
   },
 };
 </script>
