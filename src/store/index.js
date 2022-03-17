@@ -37,18 +37,6 @@ export default new Vuex.Store({
       state.cartProducts = state.cartProducts.filter((item) => item.productId !== productId);
     },
 
-    minusCartProduct(state, productId) {
-      const item = state.cartProducts.find((i) => i.productId === productId);
-
-      if (item > 0) {
-        item.amount -= 1;
-      }
-    },
-
-    plusCartProduct(state, productId) {
-      const item = state.cartProducts.find((i) => i.productId === productId);
-      item.amount += 1;
-    },
   },
   getters: {
     cartDetailProducts(state) {

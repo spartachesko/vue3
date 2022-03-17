@@ -13,7 +13,7 @@
         Артикул: {{ item.product.id }}
       </span>
 
-      <CartQty/>
+      <CartQty v-model="amount"/>
 
       <b class="product__price">
         {{ (item.amount*item.product.price) | numberFormat  }} ₽

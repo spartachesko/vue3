@@ -117,22 +117,7 @@ checked="">
             </fieldset>
 
             <div class="item__row">
-              <div class="form__counter">
-                <button type="button" aria-label="Убрать один товар">
-                  <svg width="12" height="12" fill="currentColor">
-                    <use xlink:href="#icon-minus"></use>
-                  </svg>
-                </button>
-
-                <input type="text" v-model.number="productAmount">
-
-                <button type="button" aria-label="Добавить один товар">
-                  <svg width="12" height="12" fill="currentColor">
-                    <use xlink:href="#icon-plus"></use>
-                  </svg>
-                </button>
-              </div>
-
+              <CartQty v-model="amount"/>
               <button class="button button--primery" type="submit">
                 В корзину
               </button>
@@ -209,12 +194,17 @@ import products from '@/data/products';
 import categories from '@/data/categories';
 import gotoPage from '@/helpers/gotoPage';
 import numberFormat from '@/helpers/numberFormat';
+import CartQty from '@/components/CartQty.vue';
 
 export default {
   data() {
     return {
       productAmount: 1,
     };
+  },
+
+  components: {
+    CartQty,
   },
 
   filters: {
