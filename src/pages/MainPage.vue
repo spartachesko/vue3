@@ -30,6 +30,7 @@ import products from '@/data/products';
 import ProductList from '@/components/ProductList.vue';
 import BasePagination from '@/components/BasePagination.vue';
 import ProductFilter from '@/components/ProductFilter.vue';
+import axios from 'axios';
 
 export default {
   components: { ProductList, BasePagination, ProductFilter },
@@ -41,6 +42,8 @@ export default {
       filterColor: 0,
       page: 1,
       productsPerPage: 3,
+
+      productsData: null,
     };
   },
   computed: {
@@ -71,6 +74,17 @@ export default {
     countProducts() {
       return this.filteredProducts.length;
     },
+  },
+
+  methods: {
+    loadProducts() {
+      axios.get('https://vue-study.skillbox.cc/api/products')
+        .then((response) => { this.productsData = response.data; });
+    },
+  },
+
+  create() {
+    this.loadProducts();
   },
 };
 </script>
