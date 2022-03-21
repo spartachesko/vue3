@@ -61,7 +61,7 @@ export default new Vuex.Store({
         ).product;
         return {
           ...item,
-          product,
+          image: product.image.file.url,
         };
       });
     },
