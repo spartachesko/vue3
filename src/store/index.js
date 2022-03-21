@@ -87,8 +87,8 @@ export default new Vuex.Store({
         })
         .then((response) => {
           if (!context.state.userAccessKey) {
-            localStorage.setItem('userAccessKey', response.data.accessKey);
-            context.commit('updateUserAccessKey', response.data.accessKey);
+            localStorage.setItem('userAccessKey', response.data.user.accessKey);
+            context.commit('updateUserAccessKey', response.data.user.accessKey);
           }
           context.commit('updateCartProductsData', response.data.items);
           context.commit('syncCartProducts');
