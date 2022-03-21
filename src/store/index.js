@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import products from '@/data/products';
 import axios from 'axios';
 import { API_BASE_URL } from '../config';
 
@@ -56,10 +55,14 @@ export default new Vuex.Store({
   },
   getters: {
     cartDetailProducts(state) {
-      return state.cartProducts.map((item) => ({
-        ...item,
-        product: products.find((p) => p.id === item.productId),
-      }));
+      return state.cartProducts.map((item) => {
+        // eslint-disable-next-line prefer-destructuring
+        const product = state.cartProductsData.find((p) => p.product.id === item.productId).product;
+        return {
+          ...item,
+          product,
+        };
+      });
     },
 
     cartTotalPrice(state, getters) {
@@ -86,7 +89,8 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
-          if (!context.state.userAccessKey) {
+          console.log(context);
+          if (!context.state.userAccessKey || context.state.userAccessKey === 'undefined') {
             localStorage.setItem('userAccessKey', response.data.user.accessKey);
             context.commit('updateUserAccessKey', response.data.user.accessKey);
           }
