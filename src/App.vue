@@ -120,12 +120,12 @@ import { mapActions, mapMutations } from 'vuex';
 
 export default {
   components: { CartIndicator },
-  created() {
+  async created() {
     const userAccessKey = localStorage.getItem('userAccessKey');
     if (userAccessKey) {
       this.updateUserAccessKey(userAccessKey);
     }
-    this.loadCart();
+    await this.loadCart();
   },
   methods: {
     ...mapActions(['loadCart']),

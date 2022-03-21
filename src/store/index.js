@@ -58,10 +58,10 @@ export default new Vuex.Store({
       return state.cartProducts.map((item) => {
         const { product } = state.cartProductsData.find(
           (p) => p.product.id === item.productId,
-        ).product;
+        );
         return {
           ...item,
-          image: product.image.file.url,
+          product,
         };
       });
     },
@@ -90,7 +90,6 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
-          console.log(context);
           if (!context.state.userAccessKey || context.state.userAccessKey === 'undefined') {
             localStorage.setItem('userAccessKey', response.data.user.accessKey);
             context.commit('updateUserAccessKey', response.data.user.accessKey);

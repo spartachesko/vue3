@@ -17,7 +17,7 @@
       <h1 class="content__title">
         Корзина
       </h1>
-      <span class="content__info">
+      <span v-if="totalProducts" class="content__info">
         {{ totalProducts }} товара(ов)
       </span>
     </div>
@@ -25,7 +25,7 @@
     <section class="cart">
       <form class="cart__form form" action="#" method="POST">
         <div class="cart__field">
-          <ul class="cart__list">
+          <ul v-if="products" class="cart__list">
             <CartItem v-for="item in products"
             :key="item.productId"
             :item="item"/>
