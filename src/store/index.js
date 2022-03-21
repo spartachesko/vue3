@@ -56,8 +56,9 @@ export default new Vuex.Store({
   getters: {
     cartDetailProducts(state) {
       return state.cartProducts.map((item) => {
-        // eslint-disable-next-line prefer-destructuring
-        const product = state.cartProductsData.find((p) => p.product.id === item.productId).product;
+        const { product } = state.cartProductsData.find(
+          (p) => p.product.id === item.productId,
+        ).product;
         return {
           ...item,
           product,
