@@ -120,10 +120,13 @@ checked="">
 
             <div class="item__row">
               <CartQty v-model="productAmount"/>
-              <button class="button button--primery" type="submit">
+              <button class="button button--primery" type="submit" :disabled="productAddSending">
                 В корзину
               </button>
             </div>
+            <div v-if="productAdded">Товар добавлен в корзину</div>
+            <div v-if="productAddSending">Добавляем товар в корзину...</div>
+
           </form>
         </div>
       </div>
@@ -192,6 +195,7 @@ Wahoo ELEMNT BOLT GPS – это велокомпьютер, который по
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import gotoPage from '@/helpers/gotoPage';
 import numberFormat from '@/helpers/numberFormat';
 import CartQty from '@/components/CartQty.vue';
@@ -205,6 +209,9 @@ export default {
       productData: null,
       productLoading: false,
       productLoadingFailed: false,
+
+      productAdded: false,
+      productAddSending: false,
     };
   },
 
@@ -226,13 +233,19 @@ export default {
   },
 
   methods: {
-    gotoPage,
+    ...mapActions(['addProductToCart']),
     addToCart() {
-      this.$store.commit(
-        'addProductToCart',
+      this.productAdded = false;
+      this.productAddSending = true;
+      this.addProductToCart(
         { productId: this.product.id, amount: this.productAmount, product: this.product },
-      );
+      )
+        .then(() => {
+          this.productAdded = true;
+          this.productAddSending = false;
+        });
     },
+    gotoPage,
     loadProduct() {
       this.productLoading = true;
       this.productLoadingFailed = false;
