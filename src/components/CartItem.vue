@@ -1,7 +1,7 @@
 <template>
   <li class="cart__item product">
       <div class="product__pic">
-        <img :src="item.product.image"
+        <img :src="item.image"
         width="120"
         height="120"
         :alt="item.product.title">

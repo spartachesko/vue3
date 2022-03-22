@@ -46,8 +46,10 @@ export default new Vuex.Store({
         const { product } = state.cartProductsData.find(
           (p) => p.product.id === item.productId,
         );
+
         return {
           ...item,
+          image: product.image.file.url,
           product,
         };
       });

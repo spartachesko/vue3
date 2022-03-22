@@ -225,7 +225,10 @@ export default {
 
   computed: {
     product() {
-      return this.productData;
+      return {
+        ...this.productData,
+        image: this.productData.image.file.url,
+      };
     },
     category() {
       return this.productData.category;
