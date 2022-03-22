@@ -13,9 +13,10 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    addProductToCart(state, { productId, amount }) {
+    addProductToCart(state, { productId, amount, product }) {
+      console.log('cartProducts - ', state.cartProducts);
       const item = state.cartProducts.find((i) => i.productId === productId);
-
+      console.log(item);
       if (item) {
         item.amount += amount;
       } else {
@@ -23,6 +24,7 @@ export default new Vuex.Store({
           productId,
           amount,
         });
+        state.cartProductsData.push({ product });
       }
     },
 
@@ -43,7 +45,7 @@ export default new Vuex.Store({
     },
 
     updateCartProductsData(state, items) {
-      state.cartProductsData = items;
+      state.cartProductsData.push(...items);
     },
     syncCartProducts(state) {
       state.cartProducts = state.cartProductsData.map((item) => ({

@@ -119,7 +119,7 @@ checked="">
             </fieldset>
 
             <div class="item__row">
-              <CartQty v-model="amount"/>
+              <CartQty v-model="productAmount"/>
               <button class="button button--primery" type="submit">
                 В корзину
               </button>
@@ -230,7 +230,7 @@ export default {
     addToCart() {
       this.$store.commit(
         'addProductToCart',
-        { productId: this.product.id, amount: this.productAmount },
+        { productId: this.product.id, amount: this.productAmount, product: this.product },
       );
     },
     loadProduct() {
