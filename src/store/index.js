@@ -23,11 +23,13 @@ export default new Vuex.Store({
 
     deleteCartProduct(state, productId) {
       //  console.log(state.cartProductsData);
-      state.cartProducts = state
-        .cartProducts.filter((item) => item.productId !== productId);
-      //  state.cartProducts = state.cartProductsData.filter(
-      //  (item) => item.product.id !== productId,
-      //  );
+      // const index = state.cartProductsData.findIndex((i) => i.productId === productId);
+      // state.cartProductsData.slice(index, 1);
+      // state
+      // .cartProductsData.filter((item) => item.productId !== productId);
+      state.cartProductsData = state.cartProductsData.filter(
+        (item) => item.product.id !== productId,
+      );
     },
 
     updateUserAccessKey(state, accessKey) {
@@ -88,6 +90,8 @@ export default new Vuex.Store({
             localStorage.setItem('userAccessKey', response.data.user.accessKey);
             context.commit('updateUserAccessKey', response.data.user.accessKey);
           }
+          console.log('load response -', response);
+          console.log('load cartProductsData -- ', context.state.cartProductsData);
           context.commit('updateCartProductsData', response.data.items);
           context.commit('syncCartProducts');
         });
@@ -104,6 +108,8 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
+          console.log('add response -', response);
+          console.log('add cartProductsData -- ', context.state.cartProductsData);
           context.commit('updateCartProductsData', response.data.items);
           context.commit('syncCartProducts');
         });
@@ -145,10 +151,12 @@ export default new Vuex.Store({
             },
           })
         .then((response) => {
-          //  console.log(response);
-          //  console.log('cartProductsData -', context.state.cartProductsData);
-          context.commit('deleteCartProduct', response.data.items.product.id);
-          context.commit('syncCartProducts');
+          console.log('del response -', response);
+          console.log('del cartProductsData -', context.state.cartProductsData);
+          if (response.status === 200) {
+            context.commit('deleteCartProduct', productId);
+            context.commit('syncCartProducts');
+          }
         });
     },
   },

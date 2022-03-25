@@ -32,7 +32,7 @@
 
 <script>
 import numberFormat from '@/helpers/numberFormat';
-import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 import CartQty from '@/components/CartQty.vue';
 
 export default {
@@ -55,7 +55,7 @@ export default {
     },
   },
   methods: {
-    ...mapMutations({
+    ...mapActions({
       deleteProduct: 'deleteCartProduct',
     }),
   },
