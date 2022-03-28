@@ -37,7 +37,11 @@ export default {
 
   watch: {
     amount(val) {
-      this.$emit('input', val);
+      if (val > 0) {
+        this.$emit('input', val);
+      } else {
+        this.amount = 1;
+      }
     },
   },
 
