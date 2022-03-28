@@ -85,8 +85,6 @@ export default new Vuex.Store({
             localStorage.setItem('userAccessKey', response.data.user.accessKey);
             context.commit('updateUserAccessKey', response.data.user.accessKey);
           }
-          console.log('load response -', response);
-          console.log('load cartProductsData -- ', context.state.cartProductsData);
           context.commit('updateCartProductsData', response.data.items);
           context.commit('syncCartProducts');
         });
@@ -103,8 +101,6 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
-          console.log('add response -', response);
-          console.log('add cartProductsData -- ', context.state.cartProductsData);
           context.commit('updateCartProductsData', response.data.items);
           context.commit('syncCartProducts');
         });
@@ -145,8 +141,6 @@ export default new Vuex.Store({
           },
         })
         .then((response) => {
-          console.log('del response -', response);
-          console.log('del cartProductsData -', context.state.cartProductsData);
           if (response.status === 200) {
             context.commit('deleteCartProduct', productId);
             context.commit('syncCartProducts');

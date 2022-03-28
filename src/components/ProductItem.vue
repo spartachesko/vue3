@@ -17,7 +17,6 @@
       </span>
     </li>
     <ul class="colors colors--black">
-      {{log(product.colors[0].code)}}
       <li
         class="colors__item"
         v-for="(_color, id) in product.colors"
@@ -55,9 +54,6 @@ export default {
 
   methods: {
     gotoPage,
-    log(el) {
-      console.log(el);
-    },
   },
 };
 </script>
