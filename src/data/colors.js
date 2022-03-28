@@ -1,5 +1,4 @@
-export default [
-  {
+export default [{
     id: 1,
     title: '#73B6EA',
   },

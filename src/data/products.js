@@ -1,5 +1,4 @@
-export default [
-  {
+export default [{
     id: 1,
     categoryId: 1,
     title: 'Смартфон Xiaomi Redmi Note 11',

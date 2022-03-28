@@ -22,11 +22,6 @@ export default new Vuex.Store({
     },
 
     deleteCartProduct(state, productId) {
-      //  console.log(state.cartProductsData);
-      // const index = state.cartProductsData.findIndex((i) => i.productId === productId);
-      // state.cartProductsData.slice(index, 1);
-      // state
-      // .cartProductsData.filter((item) => item.productId !== productId);
       state.cartProductsData = state.cartProductsData.filter(
         (item) => item.product.id !== productId,
       );

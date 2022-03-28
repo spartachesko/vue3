@@ -17,19 +17,20 @@
       </span>
     </li>
     <ul class="colors colors--black">
+      {{log(product.colors[0].code)}}
       <li
         class="colors__item"
-        v-for="(_color, index) in product.colors"
-        :key="index"
+        v-for="(_color, id) in product.colors"
+        :key="id"
       >
         <label class="colors__label">
           <input
             class="colors__radio sr-only"
             type="radio"
-            :value="_color"
+            :value="_color.code"
             v-model="color"
           />
-          <span class="colors__value" :style="{ 'background-color': _color }">
+          <span class="colors__value" :style="{ 'background-color': _color.code }">
           </span>
         </label>
       </li>
@@ -54,6 +55,9 @@ export default {
 
   methods: {
     gotoPage,
+    log(el) {
+      console.log(el);
+    },
   },
 };
 </script>
