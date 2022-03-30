@@ -18,38 +18,42 @@
     </div>
 
     <section class="cart">
-      <form class="cart__form form" action="#" method="POST">
+      <form class="cart__form form" action="#" method="POST" @submit.prevent="order">
         <div class="cart__field">
           <div class="cart__data">
             <BaseFormText
-            v-model="formData.name"
-            :error="formError.name"
-            title="ФИО"
-            placeholder="Введите ваше полное имя"/>
+              v-model="formData.name"
+              :error="formError.name"
+              title="ФИО"
+              placeholder="Введите ваше полное имя"
+            />
 
             <BaseFormText
-            v-model="formData.address"
-            :error="formError.address"
-            title="Адрес доставки"
-            placeholder="Введите ваш адрес"/>
+              v-model="formData.address"
+              :error="formError.address"
+              title="Адрес доставки"
+              placeholder="Введите ваш адрес"
+            />
 
             <BaseFormText
-            v-model="formData.tel"
-            :error="formError.tel"
-            title="Телефон"
-            placeholder="Введите ваш телефон"/>
+              v-model="formData.phone"
+              :error="formError.phone"
+              title="Телефон"
+              placeholder="Введите ваш телефон"
+            />
 
             <BaseFormText
-            v-model="formData.email"
-            :error="formError.email"
-            title="Email"
-            placeholder="Введи ваш Email"/>
+              v-model="formData.email"
+              :error="formError.email"
+              title="Email"
+              placeholder="Введи ваш Email"
+            />
 
             <BaseFormTextarea
-            title="Комментарий к заказу"
-            v-model="formData.comments"
-            :error="formError.comments"
-            placeholder="Ваши пожелания"
+              title="Комментарий к заказу"
+              v-model="formData.comments"
+              :error="formError.comments"
+              placeholder="Ваши пожелания"
             />
           </div>
 
@@ -139,11 +143,10 @@
             Оформить заказ
           </button>
         </div>
-        <div class="cart__error form__error-block">
+        <div class="cart__error form__error-block" v-if="formErrorMessage" >
           <h4>Заявка не отправлена!</h4>
           <p>
-            Похоже произошла ошибка. Попробуйте отправить снова или
-            перезагрузите страницу.
+            {{ formErrorMessage }}
           </p>
         </div>
       </form>
@@ -154,6 +157,8 @@
 <script>
 import BaseFormText from '@/components/BaseFormText.vue';
 import BaseFormTextarea from '@/components/BaseFormTextarea.vue';
+import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 export default {
   components: { BaseFormText, BaseFormTextarea },
@@ -161,7 +166,35 @@ export default {
     return {
       formData: {},
       formError: {},
+      formErrorMessage: '',
+
     };
+  },
+  methods: {
+    order() {
+      this.formError = {};
+      this.formErrorMessage = '';
+
+      axios.post(
+        `${API_BASE_URL}/api/orders`,
+        {
+          ...this.formData,
+        },
+        {
+          params: {
+            userAccessKey: this.$store.state.userAccessKey,
+          },
+        },
+      )
+        .then(() => {
+          this.$store.commit('resetCart');
+        })
+        .catch((error) => {
+          this.formError = error.response.data.error.request || {};
+          this.formErrorMessage = error.response.data.error.message;
+        });
+    },
+
   },
 };
 </script>
