@@ -26,9 +26,9 @@
       <div class="item__pics pics">
         <div class="pics__wrapper">
           <img width="570"
-height="570"
-:src="product.image"
-:alt="product.title">
+            height="570"
+            :src="product.image"
+            :alt="product.title">
         </div>
       </div>
 
@@ -49,23 +49,23 @@ height="570"
                 <li class="colors__item">
                   <label class="colors__label">
                     <input class="colors__radio sr-only"
-type="radio"
-name="color-item"
-value="blue"
-checked="">
+                      type="radio"
+                      name="color-item"
+                      value="blue"
+                      checked="">
                     <span class="colors__value"
-style="background-color: #73B6EA;"
->
+                      style="background-color: #73B6EA;"
+                    >
                     </span>
                   </label>
                 </li>
                 <li class="colors__item">
                   <label class="colors__label">
                     <input class="colors__radio sr-only"
-type="radio"
-name="color-item"
-value="yellow"
->
+                      type="radio"
+                      name="color-item"
+                      value="yellow"
+                    >
                     <span class="colors__value" style="background-color: #FFBE15;">
                     </span>
                   </label>
@@ -73,10 +73,10 @@ value="yellow"
                 <li class="colors__item">
                   <label class="colors__label">
                     <input class="colors__radio sr-only"
-type="radio"
-name="color-item"
-value="gray"
->
+                      type="radio"
+                      name="color-item"
+                      value="gray"
+                    >
                     <span class="colors__value" style="background-color: #939393;">
                   </span></label>
                 </li>
@@ -106,10 +106,10 @@ value="gray"
                 <li class="sizes__item">
                   <label class="sizes__label">
                     <input class="sizes__radio sr-only"
-type="radio"
-name="sizes-item"
-value="128"
-checked="">
+                      type="radio"
+                      name="sizes-item"
+                      value="128"
+                      checked="">
                     <span class="sizes__value">
                       128gb
                     </span>

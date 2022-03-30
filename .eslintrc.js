@@ -13,7 +13,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'eol-last': ["error", "never"],
-    "indent": ["error", 2],
+    'eol-last': ['error', 'never'],
+    indent: ['error', 2],
   },
 };
