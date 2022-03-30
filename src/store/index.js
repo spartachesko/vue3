@@ -53,6 +53,10 @@ export default new Vuex.Store({
 
   },
   getters: {
+    showOrderInfo(state) {
+      return state.orderInfo;
+    },
+
     cartDetailProducts(state) {
       return state.cartProducts.map((item) => {
         const { product } = state.cartProductsData.find(

@@ -32,7 +32,12 @@ export default {
       products: 'cartDetailProducts',
       totalPrice: 'cartTotalPrice',
       totalProducts: 'cartTotalProducts',
+      orderInfo: 'showOrderInfo',
     }),
   },
+  created() {
+    console.log('orderInfo-', this.orderInfo);
+  },
+
 };
 </script>
