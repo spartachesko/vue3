@@ -44,7 +44,8 @@
             tag="button"
             :to="{name: 'order'}"
             class="cart__button button button--primery"
-            type="submit">
+            type="submit"
+            v-if="totalProducts">
             Оформить заказ
           </router-link>
         </div>

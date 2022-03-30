@@ -53,7 +53,7 @@
           </ul>
         </div>
 
-        <div class="cart__block">
+        <!-- <div class="cart__block">
           <ul class="cart__orders">
             <li class="cart__order">
               <h3>Смартфон Xiaomi Redmi Note 7 Pro 6/128GB</h3>
@@ -76,7 +76,7 @@
             <p>Доставка: <b>500 ₽</b></p>
             <p>Итого: <b>3</b> товара на сумму <b>37 970 ₽</b></p>
           </div>
-        </div>
+        </div> -->
       </form>
     </section>
   </main>
