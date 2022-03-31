@@ -18,7 +18,12 @@
     </div>
 
     <section class="cart">
-      <form class="cart__form form" action="#" method="POST" @submit.prevent="order">
+      <form
+        class="cart__form form"
+        action="#"
+        method="POST"
+        @submit.prevent="order"
+      >
         <div class="cart__field">
           <div class="cart__data">
             <BaseFormText
@@ -114,7 +119,12 @@
             </ul>
           </div>
         </div>
-        <OrderProducts/>
+        <div class="cart__block">
+          <OrderProducts />
+          <button class="cart__button button button--primery" type="submit" @click.prevent="order">
+            Оформить заказ
+          </button>
+        </div>
         <!-- <div class="cart__block">
           <ul class="cart__orders">
             <li class="cart__order">
@@ -133,7 +143,7 @@
             Оформить заказ
           </button>
         </div> -->
-        <div class="cart__error form__error-block" v-if="formErrorMessage" >
+        <div class="cart__error form__error-block" v-if="formErrorMessage">
           <h4>Заявка не отправлена!</h4>
           <p>
             {{ formErrorMessage }}
@@ -158,7 +168,6 @@ export default {
       formData: {},
       formError: {},
       formErrorMessage: '',
-
     };
   },
   methods: {
@@ -170,29 +179,31 @@ export default {
       this.formError = {};
       this.formErrorMessage = '';
 
-      axios.post(
-        `${API_BASE_URL}/api/orders`,
-        {
-          ...this.formData,
-        },
-        {
-          params: {
-            userAccessKey: this.$store.state.userAccessKey,
+      axios
+        .post(
+          `${API_BASE_URL}/api/orders`,
+          {
+            ...this.formData,
           },
-        },
-      )
+          {
+            params: {
+              userAccessKey: this.$store.state.userAccessKey,
+            },
+          },
+        )
         .then((response) => {
           this.$store.commit('resetCart');
           this.$store.commit('updateOrderInfo', response.data);
-          this.$router.push({ name: 'orderInfo', params: { id: response.data.id } });
+          this.$router.push({
+            name: 'orderInfo',
+            params: { id: response.data.id },
+          });
         })
         .catch((error) => {
           this.formError = error.response.data.error.request || {};
           this.formErrorMessage = error.response.data.error.message;
         });
     },
-
   },
-
 };
 </script>

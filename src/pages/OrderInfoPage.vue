@@ -53,6 +53,7 @@
           </ul>
         </div>
 
+        <OrderProducts/>
         <!-- <div class="cart__block">
           <ul class="cart__orders">
             <li class="cart__order">
@@ -83,12 +84,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import OrderProducts from '../components/OrderProducts.vue';
+
 export default {
+  components: { OrderProducts },
+  computed: {
+    ...mapGetters({
+      orderInfo: 'showOrderInfo',
+    }),
+  },
   created() {
     if (this.$store.state.orderInfo && this.$store.state.orderInfo.id === this.$route.params.id) {
       return;
     }
     this.$store.dispatch('loadOrderInfo', this.$route.params.id);
+    console.log('orderInfo ---', this.orderInfo);
   },
 };
 </script>

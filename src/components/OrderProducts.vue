@@ -13,7 +13,7 @@
 
     <div class="cart__total">
       <p>Доставка: <b>500 ₽</b></p>
-      <p>Итого: <b>3</b> товара на сумму <b>{{ totalProducts }} ₽</b></p>
+      <p>Итого: <b>3</b> товара на сумму <b>{{ totalPrice }} ₽</b></p>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
     numberFormat,
   },
 
-  сomputed: {
+  computed: {
     ...mapGetters({
       products: 'cartDetailProducts',
       totalPrice: 'cartTotalPrice',
