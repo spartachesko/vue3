@@ -5,15 +5,18 @@
       v-for="item in products"
       :key="item.id"
       >
-        <h3>Смартфон Xiaomi Redmi Note 7 Pro 6/128GB</h3>
-        <b>18 990 ₽</b>
-        <span>Артикул: 150030</span>
+        <h3>{{ item.product.title }}</h3>
+        <b>{{ item.product.price | numberFormat }} ₽</b>
+        <span>Артикул: {{ item.product.id }}</span>
       </li>
     </ul>
 
     <div class="cart__total">
       <p>Доставка: <b>500 ₽</b></p>
-      <p>Итого: <b>3</b> товара на сумму <b>{{ totalPrice }} ₽</b></p>
+      <p>Итого:
+        <b>{{ totalProducts }}</b>
+        товара на сумму <b>{{ totalPrice | numberFormat }} ₽</b>
+      </p>
     </div>
   </div>
 </template>
@@ -37,6 +40,7 @@ export default {
   },
   created() {
     console.log('orderInfo-', this.orderInfo);
+    console.log('products-', this.products);
   },
 
 };
