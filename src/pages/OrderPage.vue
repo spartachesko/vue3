@@ -120,7 +120,11 @@
           </div>
         </div>
         <div class="cart__block">
-          <OrderProducts />
+          <OrderProducts
+          :products="products"
+          :totalPrice="totalPrice"
+          :totalProducts="totalProducts"
+          />
           <button class="cart__button button button--primery" type="submit" @click.prevent="order">
             Оформить заказ
           </button>
@@ -158,6 +162,8 @@
 import BaseFormText from '@/components/BaseFormText.vue';
 import BaseFormTextarea from '@/components/BaseFormTextarea.vue';
 import OrderProducts from '@/components/OrderProducts.vue';
+import numberFormat from '@/helpers/numberFormat';
+import { mapGetters } from 'vuex';
 import axios from 'axios';
 import { API_BASE_URL } from '../config';
 
@@ -170,6 +176,19 @@ export default {
       formErrorMessage: '',
     };
   },
+  filters: {
+    numberFormat,
+  },
+
+  computed: {
+    ...mapGetters({
+      products: 'cartDetailProducts',
+      totalPrice: 'cartTotalPrice',
+      totalProducts: 'cartTotalProducts',
+      orderInfo: 'showOrderInfo',
+    }),
+  },
+
   methods: {
     log(el) {
       console.log(el);

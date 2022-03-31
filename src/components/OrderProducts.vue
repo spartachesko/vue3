@@ -23,21 +23,13 @@
 
 <script>
 import numberFormat from '@/helpers/numberFormat';
-import { mapGetters } from 'vuex';
 
 export default {
+  props: ['products', 'totalPrice', 'totalProducts'],
   filters: {
     numberFormat,
   },
 
-  computed: {
-    ...mapGetters({
-      products: 'cartDetailProducts',
-      totalPrice: 'cartTotalPrice',
-      totalProducts: 'cartTotalProducts',
-      orderInfo: 'showOrderInfo',
-    }),
-  },
   created() {
     console.log('orderInfo-', this.orderInfo);
     console.log('products-', this.products);
