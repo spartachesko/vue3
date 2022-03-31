@@ -30,10 +30,10 @@ export default {
     numberFormat,
   },
 
-  created() {
-    console.log('orderInfo-', this.orderInfo);
-    console.log('products-', this.products);
-  },
+  // created() {
+  //   console.log('orderInfo-', this.orderInfo);
+  //   console.log('products-', this.products);
+  // },
 
 };
 </script>

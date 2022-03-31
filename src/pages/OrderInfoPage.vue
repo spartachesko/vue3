@@ -53,7 +53,11 @@
           </ul>
         </div>
 
-        <OrderProducts/>
+        <OrderProducts
+          :products="products"
+          :totalPrice="totalPrice"
+          :totalProducts="totalProducts"
+        />
         <!-- <div class="cart__block">
           <ul class="cart__orders">
             <li class="cart__order">
@@ -95,7 +99,10 @@ export default {
     }),
   },
   created() {
-    if (this.$store.state.orderInfo && this.$store.state.orderInfo.id === this.$route.params.id) {
+    if (
+      this.$store.state.orderInfo
+      && this.$store.state.orderInfo.id === this.$route.params.id
+    ) {
       return;
     }
     this.$store.dispatch('loadOrderInfo', this.$route.params.id);
