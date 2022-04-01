@@ -29,22 +29,22 @@
             <li class="dictionary__item">
               <span class="dictionary__key"> Получатель </span>
               <span class="dictionary__value">
-                Иванова Василиса Алексеевна
+                {{ orderInfo.name }}
               </span>
             </li>
             <li class="dictionary__item">
               <span class="dictionary__key"> Адрес доставки </span>
               <span class="dictionary__value">
-                Москва, ул. Ленина, 21, кв. 33
+                {{ orderInfo.address }}
               </span>
             </li>
             <li class="dictionary__item">
               <span class="dictionary__key"> Телефон </span>
-              <span class="dictionary__value"> 8 800 989 74 84 </span>
+              <span class="dictionary__value"> {{ orderInfo.phone }} </span>
             </li>
             <li class="dictionary__item">
               <span class="dictionary__key"> Email </span>
-              <span class="dictionary__value"> lalala@mail.ru </span>
+              <span class="dictionary__value"> {{ orderInfo.email }} </span>
             </li>
             <li class="dictionary__item">
               <span class="dictionary__key"> Способ оплаты </span>
@@ -54,9 +54,9 @@
         </div>
 
         <OrderProducts
-          :products="products"
-          :totalPrice="totalPrice"
-          :totalProducts="totalProducts"
+          :products="orderInfo.basket.items"
+          :totalPrice="orderInfo.totalPrice"
+          :totalProducts="orderInfo.basket.items.length"
         />
         <!-- <div class="cart__block">
           <ul class="cart__orders">
@@ -97,16 +97,16 @@ export default {
     ...mapGetters({
       orderInfo: 'showOrderInfo',
     }),
+
   },
   created() {
     if (
       this.$store.state.orderInfo
-      && this.$store.state.orderInfo.id === this.$route.params.id
+      && this.$store.state.orderInfo.id === +this.$route.params.id
     ) {
       return;
     }
     this.$store.dispatch('loadOrderInfo', this.$route.params.id);
-    console.log('orderInfo ---', this.orderInfo);
   },
 };
 </script>

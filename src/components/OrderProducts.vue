@@ -29,11 +29,5 @@ export default {
   filters: {
     numberFormat,
   },
-
-  // created() {
-  //   console.log('orderInfo-', this.orderInfo);
-  //   console.log('products-', this.products);
-  // },
-
 };
 </script>

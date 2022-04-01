@@ -16,6 +16,7 @@ export default new Vuex.Store({
   mutations: {
     updateOrderInfo(state, orderInfo) {
       state.orderInfo = orderInfo;
+      console.log('---', state.orderInfo);
     },
 
     resetCart(state) {
