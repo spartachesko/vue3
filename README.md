@@ -1,4 +1,4 @@
-# skillbox3
+# Shop Tehnozavr
 
 ## Project setup
 ```
